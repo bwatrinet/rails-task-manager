@@ -1,0 +1,23 @@
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+<div class="container">
+  <h1><strong>My Tasks</strong></h1>
+  <br>
+  <ul class="list-group"> <% @tasks.each do |task| %>
+    <li class="list-group-item">
+      <% if task.completed %>
+        <img src="https://image.flaticon.com/icons/png/128/291/291201.png" width="15px">
+      <% else %>
+        <img src="https://cdn1.iconfinder.com/data/icons/interface-59/24/radio-button-off-unchecked-round-circle-128.png" width="17px">
+      <% end %>
+      <%=link_to task.title, task_path(task)%>
+        <%= link_to delete_path(task), method: 'delete', :data => {:confirm => 'Are you sure?'} do %>
+          <img src="https://image.flaticon.com/icons/png/128/70/70388.png" width="20px" id="garbage">
+        <% end %>
+    </li>
+    <%end%>
+  </ul>
+  <br>
+  <button class="btn btn-success"> <%=link_to '✔️ Create new task', tasks_new_path%> </button>
+</div>

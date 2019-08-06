@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+  <div class="container">
+
+      <h1><strong> My task:</strong> <%= @task.title %></h1>
+      <br>
+      <h4> <strong> Details:</strong> <%= @task.details %></h4>
+
+        <%if @task.completed %>
+          <img src="https://image.flaticon.com/icons/png/128/291/291201.png" width="15px">
+          <p class="inline">This task is completed</p>
+        <%else%>
+          <img src="https://cdn1.iconfinder.com/data/icons/interface-59/24/radio-button-off-unchecked-round-circle-128.png" width="17px">
+          <p class="inline"> <em> This task is not completed</em></p>
+        <%end %>
+  </div>
+
+  <div class="container">
+    <button class='btn btn-warning'>
+      <p><%=link_to "✍️ Edit this task.", edit_path(@task)%></p>
+    </button>
+
+    <button class='btn btn-secondary'>
+      <p><%=link_to "🔙 Go back to the list.", tasks_path%></p>
+    </button>
+  </div>
+
+
+
